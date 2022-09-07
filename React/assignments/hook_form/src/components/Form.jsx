@@ -6,6 +6,7 @@ const Form = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
   const createUser = (e) => {
     e.preventDefault();
@@ -17,11 +18,18 @@ const Form = (props) => {
     setEmail("");
     setPassword("");
     setConfirmPassword("");
+
+    setHasBeenSubmitted(true);
   };
 
   return (
     <div>
       <form onSubmit={createUser}>
+        {hasBeenSubmitted ? (
+          <h3>Thank you for submitting the form!</h3>
+        ) : (
+          <h3>Welcome, please submit the form.</h3>
+        )}
         <div>
           <label>First Name </label>
           <input
