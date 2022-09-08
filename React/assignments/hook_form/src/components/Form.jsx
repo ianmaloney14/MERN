@@ -20,6 +20,13 @@ const Form = (props) => {
     setConfirmPassword("");
 
     setHasBeenSubmitted(true);
+
+    // const submitHandler = (e) => {
+    //   e.preventDefault()
+    //   if(firstName && lastName && email && password %% confirmPassword) {
+    //     console.log(obj)
+    //   }
+    // }
   };
 
   return (
@@ -37,6 +44,9 @@ const Form = (props) => {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           ></input>
+          {firstName && firstName.length < 2 ? (
+            <p>First name must be more than 2 characters!</p>
+          ) : null}
         </div>
         <div>
           <label>Last Name </label>
@@ -45,6 +55,9 @@ const Form = (props) => {
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           ></input>
+          {lastName && lastName.length < 2 ? (
+            <p>Last name must be more than 2 characters!</p>
+          ) : null}
         </div>
         <div>
           <label>Email </label>
@@ -53,6 +66,9 @@ const Form = (props) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
+          {email && email.length < 2 ? (
+            <p>Email must be more than 2 characters!</p>
+          ) : null}
         </div>
         <div>
           <label>Password </label>
@@ -61,6 +77,9 @@ const Form = (props) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></input>
+          {password && password.length < 8 ? (
+            <p>Password must be 8 characters!</p>
+          ) : null}
         </div>
         <div>
           <label>Confirm Password </label>
@@ -69,6 +88,7 @@ const Form = (props) => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></input>
+          {confirmPassword === password ? null : <p>Passwords must match!</p>}
         </div>
         <input type="submit" value="Submit" />
       </form>
