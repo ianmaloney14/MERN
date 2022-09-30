@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import axios from 'axois'
+import React,{ useState, useEffect } from "react";
+import axios from 'axios'
 
 const PokemonAPI = () => {
     const [getPokemon, setPokemon] = useState([]);
@@ -7,9 +7,9 @@ const PokemonAPI = () => {
 
     useEffect(() => {
         axios.get(pokemonAPI)
-            .then(response => {
-                return response.json()
-            })
+            // .then(response => {
+            //     return response.json()
+            // })
             .then(response => {
                 return setPokemon(response.data.results)
             })
