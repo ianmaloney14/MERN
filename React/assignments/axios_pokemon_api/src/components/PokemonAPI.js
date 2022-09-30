@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from 'axois'
 
-const Pokemon = () => {
+const PokemonAPI = () => {
     const [getPokemon, setPokemon] = useState([]);
     const pokemonAPI = 'https://pokeapi.co/api/v2/pokemon/?limit=865'
 
     useEffect(() => {
         axios.get(pokemonAPI)
-            // .then(response => {
-            //     return response.json()
-            // })
+            .then(response => {
+                return response.json()
+            })
             .then(response => {
                 return setPokemon(response.data.results)
             })
@@ -28,4 +28,5 @@ const Pokemon = () => {
         </div>
     )
 }
-export default Pokemon
+export default PokemonAPI
+
