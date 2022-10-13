@@ -26,7 +26,7 @@ module.exports = {
         })
     },
     updateProduct:(req, res)=>{
-        Product.updateOne({_id:req.params.id},)
+        Product.findOneAndUpdate({_id:req.params.id}, req.body, {new:true})
         .then((result)=>{
             res.json(result)
         }).catch((err)=>{
@@ -34,7 +34,7 @@ module.exports = {
         })
     },
     deleteProduct:(req, res)=>{
-        Product.deleteOne({_id:req.params.id}, req.body)
+        Product.deleteOne({ _id: req.params.id })
         .then((result)=>{
             res.json(result)
         }).catch((err)=>{

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from 'axios'
-import ProductList from "./ProductList";
 
 const ProductForm = (props) => {
     const {products, setProducts} = props
