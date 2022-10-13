@@ -2,7 +2,7 @@ const Product = require('../models/product.model')
 
 module.exports = {
     getAllProducts:(req, res)=>{
-        Product.find()
+        Product.find({})
         .then((result)=>{
             res.json(result)
         }).catch((err)=>{

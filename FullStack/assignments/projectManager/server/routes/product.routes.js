@@ -2,7 +2,7 @@ const ProductController = require('../controllers/product.controllers')
 
 module.exports = (app) => {
     // get all products
-    app.get('/api/allProducts',ProductController.getAllProducts)
+    app.get('/api/products',ProductController.getAllProducts)
     // get one product
     app.get('/api/product/:id',ProductController.getOneProduct)
     // create new product

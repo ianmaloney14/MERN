@@ -1,13 +1,16 @@
 import './App.css';
+import axios from 'axios';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import ProductForm from './components/ProductForm';
+import Main from './views/Main';
+import ProductDetails from './components/ProductDetails';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ProductForm/>}/>
+          <Route element={<Main/>} path="/" default />
+          <Route element={<ProductDetails/>} path="/product/:id" default />
         </Routes>
       </BrowserRouter>
     </div>
