@@ -1,6 +1,6 @@
 import { useState } from "react";
 const ProductForm = (props) => {
-    const { initialTitle, initialPrice, initialDescription, onSubmitProp } = props
+    const { initialTitle, initialPrice, initialDescription, onSubmitProp, setProducts } = props
     const [title, setTitle] = useState(initialTitle)
     const [price, setPrice] = useState(initialPrice)
     const [description, setDescription] = useState(initialDescription)
@@ -8,10 +8,10 @@ const ProductForm = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         onSubmitProp({ title, price, description})
+        setProducts(prevState=>[...prevState, { title, price, description}])
     }
     return (
         <div>
-            <h1>Product Manager</h1>
             <form onSubmit={ submitHandler }>
                 <div>
                     <label>Title</label>
@@ -26,7 +26,7 @@ const ProductForm = (props) => {
                     <input type="textarea" value={description } onChange={ (e) => setDescription(e.target.value) }/>
                 </div>
                 <div>
-                    <input type="submit" value="Add Product" />
+                    <input type="submit" value="Submit" />
                 </div>
             </form>
         </div>

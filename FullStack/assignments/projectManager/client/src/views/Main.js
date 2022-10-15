@@ -36,7 +36,8 @@ const Main = () => {
 
     return (
         <div>
-            <ProductForm onSubmitProp={createProduct} initialTitle="" initialPrice="" initialDescription="" />
+            <h1>Product Manager</h1>
+            <ProductForm onSubmitProp={createProduct} setProducts={setProducts} initialTitle="" initialPrice="" initialDescription="" />
             <hr/>
             <ProductList products={products} setProducts={setProducts} removeFromDom={removeFromDom} />
         </div>

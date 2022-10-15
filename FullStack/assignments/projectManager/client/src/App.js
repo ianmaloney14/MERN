@@ -10,9 +10,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route element={<Main/>} path="/" default />
-          <Route element={<ProductDetails/>} path="/product/:id" default />
-          <Route element={<Update/>} path="/product/edit/:id" default />
+          <Route path="/" exact element={<Main/>} />
+          <Route path="/product/:id" element={<ProductDetails/>} />
+          <Route path="/product/edit/:id" element={<Update/>} />
         </Routes>
       </BrowserRouter>
     </div>

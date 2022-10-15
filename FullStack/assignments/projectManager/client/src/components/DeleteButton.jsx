@@ -1,10 +1,10 @@
 import axios from "axios";
 const DeleteButton = (props) => {
-    const {productId, successCallBack } = props
+    const { productId, successCallback } = props
     const deleteProduct = e => {
         axios.delete('http://localhost:8000/api/delete/' + productId)
             .then(res=>{
-                successCallBack()
+                successCallback()
             })
     }
     return (

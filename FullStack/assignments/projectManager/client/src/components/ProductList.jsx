@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from 'axios'
-import { Link } from '@reach/router';
+import { Link, useNavigate } from 'react-router-dom';
 import DeleteButton from "./DeleteButton";
-const ProductList = (props) =>{
-    const [products, setProducts] = useState([])
+const ProductList = ({products, setProducts}) =>{
+    // const [products, setProducts] = useState([])
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get('http://localhost:8000/api/products')
             .then(res => setProducts(res.data))
